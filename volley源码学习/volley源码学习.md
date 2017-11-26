@@ -17,7 +17,7 @@ volley整个源码都是用了接口编程的思想，这也比较符合设计�
 
 首先先放一张google官方给的流程图，虽然比较简单，但是可以在心中有一个大致的概念
 
-![](1.png)
+![1.png](https://www.gaotenglife.com/wp-content/uploads/1.png)
 
 首先我们从volley调用入手，找到调用入口，这样就可以按图索骥，一点点摸索出整个的流程。
 
@@ -186,7 +186,8 @@ HttpURLConnection，而HttpClientStack是封装了httpcliet底层库。这样net
 
 
 之后又通过了一层判断
-	  if (!entry.refreshNeeded()) {
+ 
+     if (!entry.refreshNeeded()) {
             // Completely unexpired cache hit. Just deliver the response.
             mDelivery.postResponse(request, response);
         } else {
@@ -262,6 +263,7 @@ ttl和softttl这两个是http协议里面通过header计算出来的两个值。
 于是我又一遍一遍看了网络请求的代码，终于发现了端倪
 
 原来在networkdispater调用Network进行网络请求的时候，network里面竟然写了一个while循环
+
 	 @Override
     public NetworkResponse performRequest(Request<?> request) throws VolleyError {
         long requestStart = SystemClock.elapsedRealtime();
