@@ -341,9 +341,3 @@ view.setOnclickListenner(
 
 也可以访问局部变量，不过不需要加final
 
-
-
-
-
-
-
